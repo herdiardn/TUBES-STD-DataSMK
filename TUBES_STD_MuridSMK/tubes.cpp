@@ -98,26 +98,30 @@ void addChild(ListJurusan &LJ, ListMurid &LM, adrM M, string namaJur){
     }
 }
 
-void DeleteParentsAndChild(ListJurusan &LJ, adrJur &Jurusan, string namaJ, int kelas){
-//    if(firstJur(LJ) == NULL){
-//        cout << "Jurusan sudah kosong" << endl;
-//    } else {
-//        adrJur J;
-//        //findParent(LJ, namaJ, kelas);
-//        if(J == NULL){
-//            cout << "Jurusan Tidak ada" << endl;
-//        } else {
-//            if(nextJur(firstJur(LJ)) == NULL){
-//                Jurusan = firstJur(LJ);
-//            } else if (nextJur(firstJur(LJ)) != NULL && J != firstJur(LJ)){
-//                adrJur K = firstJur(LJ);
-//                while(nextJur(K) != J){
-//                    K = nextJur(K);
-//                }
-//                nextJur(K) = NULL;
-//            }
-//        }
-//    }
+void DeleteParentsAndChild(ListJurusan &LJ, adrJur &Jurusan, string namaJur, int kelas){
+    adrJur R;
+    R = findParent(LJ, namaJur);
+
+    if(firstJur(LJ) == NULL){
+        cout << "Jurusan sudah kosong" << endl;
+    } else if ( R == firstJur(LJ)) {
+        firstJur(LJ) = nextJur(R);
+        nextJur(R) = NULL;
+    } else {
+        //R = findParent(LJ, namaJur);
+        Jurusan = firstJur(LJ);
+        while(nextJur(Jurusan) != R) {
+            Jurusan = nextJur(Jurusan);
+        }
+        if(nextJur(R) == firstJur(LJ)) {
+            nextJur(Jurusan) = firstJur(LJ);
+            R = NULL;
+        }else{
+            nextJur(Jurusan) = nextJur(R);
+            nextJur(R) = NULL;
+            R = NULL;
+        }
+    }
 }
 
 void showAllData(ListJurusan LJ){
@@ -177,7 +181,37 @@ adrM findChild(ListMurid LM, string namaJur, string nama, ListJurusan LJ)
         return M;
     }
 }
-//void deleteChild(ListMurid &LM, string namaJ, int kelas, ListJurusan &LJ, adrM &Murid);
+
+void deleteChild(ListMurid &LM, string namaJur, string nama, int kelas, ListJurusan &LJ, adrM &M){
+    adrJur J;
+    adrM Murid;
+
+    J = findParent(LJ, namaJur);
+    M = findChild(LM,namaJur, nama, LJ);
+
+    Murid = Mrd(J);
+    if(Murid == M){
+        if(nextM(M) == NULL){
+            Mrd(J) = NULL;
+        }else{
+            Mrd(J) = nextM(Mrd(J));
+        }
+    } else {
+        while(Murid != NULL) {
+            if(infoM(nextM(Murid)).namaJurusan == infoM(M).namaJurusan){
+                if(nextM(M) == NULL){
+                    nextM(Murid) = NULL;
+                    break;
+                }else{
+                    Mrd(J) == Murid;
+                    break;
+                }
+            }
+            Murid = nextM(Murid);
+        }
+    }
+}
+
 int countchild(ListJurusan LJ, string namaJur){
     adrJur J;
     adrM M;

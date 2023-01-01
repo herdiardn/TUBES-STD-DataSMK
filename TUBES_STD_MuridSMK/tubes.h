@@ -54,12 +54,12 @@ void createlistChild(ListMurid &LM);
 adrM createChild(infotypeM infoM);
 void addParent(ListJurusan &LJ, adrJur Jurusan);
 void showAllDataParent(ListJurusan LJ);
-void DeleteParentsAndChild(ListJurusan &LJ, adrJur &Jurusan, string namaJ, int kelas);
+void DeleteParentsAndChild(ListJurusan &LJ, adrJur &Jurusan, string namaJur, int kelas);
 adrJur findParent(ListJurusan LJ, string namaJur);
 void addChild(ListJurusan &LJ, ListMurid &LM, adrM M, string namaJur);
 void showAllData(ListJurusan LJ);
 adrM findChild(ListMurid LM, string namaJur, string nama, ListJurusan LJ);
-void deleteChild(ListMurid &LM, string namaJur, int kelas, ListJurusan &LJ, adrM &Murid);
+void deleteChild(ListMurid &LM, string namaJur, int kelas, ListJurusan &LJ, adrM &M);
 int countchild(ListJurusan LJ, string namaJur);
 
 int Select_Menu();

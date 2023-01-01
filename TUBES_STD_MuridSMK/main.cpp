@@ -36,14 +36,14 @@ int main() {
             }
             break;
         case 2:
-            cout<<"Berapa Mahasiswa yang akan Ditambahkan : ";
+            cout<<"Berapa Murid yang akan Ditambahkan : ";
             cin>> total;
             for(t=1;t <= total ; t++){
-                cout<<"Masukkan Nama Mahasiswa : ";
+                cout<<"Masukkan Nama Murid : ";
                 cin>>infoM.nama;
-                cout<<"Masukkan Jurusan Mahasiswa : ";
+                cout<<"Masukkan Jurusan Murid : ";
                 cin>>infoM.namaJurusan;
-                cout<<"Masukkan NISN Mahasiswa : ";
+                cout<<"Masukkan NISN Murid : ";
                 cin>>infoM.NISN;
 
                 M = createChild(infoM);
@@ -80,7 +80,7 @@ int main() {
         case 8:
             cout<<"Masukkan Jurusan : ";
             cin>>namaJur;
-            cout<<"Jumlah mahasiswa : "<<countchild(LJ, namaJur)<<endl;
+            cout<<"Jumlah Murid : "<<countchild(LJ, namaJur)<<endl;
             break;
         case 9:
             cout<<"Masukkan NISN Murid : ";
