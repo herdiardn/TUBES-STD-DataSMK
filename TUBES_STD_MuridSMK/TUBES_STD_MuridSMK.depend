@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1672570731 source:c:\users\asus\onedrive - telkom university\documents\c++\tubes_std_muridsmk\main.cpp
+	"tubes.h"
+	<iostream>
+
+1672569256 source:c:\users\asus\onedrive - telkom university\documents\c++\tubes_std_muridsmk\tubes.cpp
+	"tubes.h"
+
+1672569181 c:\users\asus\onedrive - telkom university\documents\c++\tubes_std_muridsmk\tubes.h
+	<iostream>
+
